@@ -38,15 +38,12 @@ pipeline {
 
         stage('SonarQube Analysis') {
             environment {
-                SCANNER_HOME = tool 'SonarQubeScanner';    
+                SCANNER_HOME = tool 'sonarqube'
             }
-            
-            steps {  
-                script {
-                    withSonarQubeEnv(credentialsId: 'sonarqube_token') {
-                        sh "${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=kanban-ui -Dsonar.projectName=KanbanUI"
-                    }
-                }
+            steps {
+                withSonarQubeEnv(installationName: 'SonarQube Server') {
+                    sh "${SCANNER_HOME}/bin/sonar-scanner"
+                }  
             }
         }
 
