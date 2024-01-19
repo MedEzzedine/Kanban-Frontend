@@ -76,7 +76,7 @@ pipeline {
             // Actions to perform after the pipeline completes
             script {
                 sh "docker logout"
-                echo 'Pipeline execution complete!'
+                echo 'Pipeline execution complete!!'
             }
         }
     }
