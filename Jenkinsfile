@@ -7,13 +7,7 @@ pipeline {
     
     environment {
         // Define environment variables
-        NEXUS_VERSION = 'nexus3'
-        NEXUS_REPOSITORY = 'kanban-frontend'
-        NEXUS_URL = 'nexus:8081'
-        NEXUS_PROTOCOL = 'http'
-        NEXUS_CREDENTIAL_ID = 'nexus_credentials'
         DOCKERHUB_CREDENTIALS_ID = 'dockerhub_credentials'
-
         FRONTEND_IMAGE_NAME = 'kanban-frontend'
         DOCKERHUB_USER = 'medez'
     }
