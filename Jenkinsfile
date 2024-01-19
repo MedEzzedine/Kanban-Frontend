@@ -22,7 +22,7 @@ pipeline {
             }
         }
 
-        stage('Package JAR') {
+        stage('Build Application') {
             steps {
                 script {
                     sh 'npm run build'
