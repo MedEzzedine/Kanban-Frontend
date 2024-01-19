@@ -23,7 +23,7 @@ pipeline {
         stage('Install Packages') {
             steps {
                 script {
-                    sh 'npm ci'
+                    sh 'npm install'
                 }
             }
         }
