@@ -31,14 +31,20 @@ pipeline {
         }
 
         stage('SonarQube Analysis') {
-            environment {
-                SCANNER_HOME = tool 'SonarQube Server'
-            }
+            // environment {
+            //     SCANNER_HOME = tool 'SonarQube Server'
+            // }
+            // steps {
+            //     withSonarQubeEnv(installationName: 'SonarQube Server', credentialsId: 'sonarqube_token') {
+            //         sh "${SCANNER_HOME}/bin/sonar-scanner"
+            //     }  
+            // }
             steps {
-                withSonarQubeEnv(installationName: 'SonarQube Server', credentialsId: 'sonarqube_token') {
-                    sh "${SCANNER_HOME}/bin/sonar-scanner"
-                }  
+                script {
+                  sh "sleep 12"
+                }
             }
+            
         }
 
         stage('Build and Push Docker Image') {
