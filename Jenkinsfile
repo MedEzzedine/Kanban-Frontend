@@ -38,10 +38,10 @@ pipeline {
 
         stage('SonarQube Analysis') {
             environment {
-                SCANNER_HOME = tool 'sonarqube'
+                SCANNER_HOME = tool 'SonarQube Server'
             }
             steps {
-                withSonarQubeEnv(installationName: 'SonarQube Server') {
+                withSonarQubeEnv(credentialsId: 'sonarqube_token') {
                     sh "${SCANNER_HOME}/bin/sonar-scanner"
                 }  
             }
