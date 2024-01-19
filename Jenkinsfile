@@ -66,7 +66,7 @@ pipeline {
                 script {
                     sh "docker compose -p 'kanban' down || echo 'project kanban not running'"
                     sh "docker compose -p 'kanban' up -d --build"
-                    slackSend color: "good", message: "Deployed Successfully!"
+                    slackSend color: "good", message: "Frontend deployed Successfully!"
                 }
             }
         }
@@ -81,7 +81,7 @@ pipeline {
             }
         }
         failure {
-            slackSend color: "bad", message: "Pipeline failed."
+            slackSend color: "bad", message: "Frontend pipeline failed."
         }
     }
 }
