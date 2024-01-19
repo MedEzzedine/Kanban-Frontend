@@ -81,7 +81,7 @@ pipeline {
             }
         }
         failure {
-            slackSend color: "bad", message: "Frontend pipeline failed."
+            slackSend color: "danger", message: "Frontend pipeline failed."
         }
     }
 }
