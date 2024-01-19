@@ -60,6 +60,7 @@ pipeline {
                 script {
                     sh "docker compose -p 'kanban' down || echo 'project kanban not running'"
                     sh "docker compose -p 'kanban' up -d --build"
+                    slackSend color: "good", message: "Deployed Successfully!"
                 }
             }
         }
@@ -72,6 +73,9 @@ pipeline {
                 sh "docker logout"
                 echo 'Pipeline execution complete!!'
             }
+        }
+        failure {
+            slackSend color: "bad", message: "Pipeline failed."
         }
     }
 }
