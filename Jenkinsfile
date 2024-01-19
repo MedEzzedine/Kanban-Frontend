@@ -35,7 +35,7 @@ pipeline {
                 SCANNER_HOME = tool 'SonarQube Server'
             }
             steps {
-                withSonarQubeEnv(credentialsId: 'sonarqube_token') {
+                withSonarQubeEnv(installationName: 'SonarQube Server', credentialsId: 'sonarqube_token') {
                     sh "${SCANNER_HOME}/bin/sonar-scanner"
                 }  
             }
